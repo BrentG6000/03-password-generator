@@ -13,7 +13,7 @@ var useNumeric;
 var useSpecialChar;
 var validated = false;
 
-// ask the user how many characters should be in the password
+// Ask the user how many characters should be in the generated password. The while loop prevents passwords that aren't the required size. 
 function howManyCharacters() {
   var correctNum = false;
   while (!correctNum) {
@@ -27,26 +27,27 @@ function howManyCharacters() {
   }
 }
 
+// Ask the user how if they want lowercase letters in their generated password.
 function useLowerCase() {
   useLowerCaseLtrs = confirm("Do you want lower case letters in the password?");
-  console.log(useLowerCaseLtrs);
 }
 
+// Ask the user how if they want capital letters in their generated password.
 function useUpperCase() {
   useUpperCaseLtrs = confirm("Do you want uppercase case letters in the password?");
-  console.log(useUpperCaseLtrs);
 }
 
+// Ask the user how if they want numbers in their generated password.
 function useNumbers() {
   useNumeric = confirm("Do you want numbers in the password?");
-  console.log(useNumeric);
 }
 
+// Ask the user how if they want special characters in their generated password.
 function useSpecial() {
   useSpecialChar = confirm("Do you want special characters in the password?");
-  console.log(useSpecialChar);
 }
 
+// Checks if the user picked at least one of the character options.
 function validatePassword() {
   if (useLowerCaseLtrs || useUpperCaseLtrs || useNumeric || useSpecialChar) {
     validated = true;
@@ -57,6 +58,9 @@ function validatePassword() {
   }
 }
 
+/* Runs all the password questions and the validation. Then it adds all the picked character choices to a string.
+  Then a for loop uses a random numnber to pick from the newly created string as many times as needed. The new
+  password is returned. */
 function generatePassword() {
   while (!validated) {
     console.log("Start here.");
